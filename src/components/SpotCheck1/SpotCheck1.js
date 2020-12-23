@@ -6,9 +6,13 @@ class SpotCheck1 extends Component {
     logClick() {
         console.log("I was clicked!")
     }
+
+    hover(){
+        console.log("I was Hovered!")
+    }
     render() {
         return (
-            <button id="logger" onClick={this.logClick}>Click me</button>
+            <button id="logger" onClick={this.logClick} onMouseOver={this.hover}>Click me</button>
         );
     }
 }

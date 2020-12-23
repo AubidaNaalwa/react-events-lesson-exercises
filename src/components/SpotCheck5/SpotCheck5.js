@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Task from './Task';
 
 class SpotCheck5 extends Component {
 
@@ -19,12 +20,22 @@ class SpotCheck5 extends Component {
   }
 
   markComplete = text => {
-
+      const tasks =  [...this.state.tasks]
+      const specificTask = tasks.find(v => v.text === text)
+      specificTask.complete = true
+      this.setState({
+        tasks
+      })
   }
 
   render() {
     return (
-      <div></div>
+      <div>
+        {this.state.tasks.map( v =>
+          v.complete ? "" :<Task key={v.text} c = {v} completed = {this.markComplete}/>
+        )}
+
+      </div>
     )
   }
 }
